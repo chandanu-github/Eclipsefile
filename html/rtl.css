@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008 IBM Corporation and others.
+ * Copyright (c) 2009, 2011 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,9 +13,22 @@
  * This file contains styles that are specific to right to left display
  */
 
+#page-links {
+     direction: rtl;
+ }
 
 table {
     direction: rtl;
+}
+
+#page-links a span.link-label {
+	right : 48px;
+	margin-right: 0px;
+}
+
+#page-links a p .text {
+    right: 51px; 
+	margin-right: 0px;
 }
 
 #page-content p { 
@@ -46,6 +59,12 @@ table {
     top:0px;
 }
 
+#page-content * a p {
+    margin-bottom:0px;
+    position:static;
+    top:0px;
+}
+
 .content-group {
 	text-align: right;
 }
@@ -53,6 +72,18 @@ table {
 .intro-header span {
     margin-right : 45px;
     padding-right : 45px;
+}
+
+#navigation-links a {
+  float:right;
+  margin-left:auto;
+  margin-left : 10px;
+}
+
+#action-links a {
+    float:left;
+    margin-left:20px;
+    margin-right : auto;
 }
 
 div div#rss-news {  
@@ -79,5 +110,28 @@ div ul.news-list {
 #page-content .section-title-link:hover .section-toggle-image-closed,
 #page-content .section-title-link:active .section-toggle-image-closed {
 	background-image : url(../graphics/icons/ctool/widget_closed_hov_rtl.gif);
+}
+
+#standby #links-background {
+    text-align:right;
+}
+
+#standby #page-links a {
+	text-align : right; 
+}
+
+#standby #page-links a .link-label {
+    left:auto;
+    right : 60px;
+}
+
+#standby #page-links p {
+    right : 60px;
+}  
+
+#standby #page-links a p .text {
+    margin-right:auto;
+    left:auto;
+    right : 60px;
 }
 

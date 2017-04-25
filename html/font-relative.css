@@ -1,5 +1,5 @@
-/*******************************************************************************
- * Copyright (c) 2008 IBM Corporation and others.
+L/*******************************************************************************
+ * Copyright (c) 2008, 2010 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -38,9 +38,12 @@ H4 .div-label {
 	font-size: 100%; 
 }
 
-/* General link labels */
-a .link-label {
-	//font-size : 10pt;
+#page-links, #action-links {
+    font-size : 8pt;
+}
+
+#standby #page-links {
+    font-size : 100%;
 }
 
 /* Floating link labels for navigation links */
@@ -77,36 +80,17 @@ p .group-description {
 	font-size:90%; 
 }
 
+#root #page-links, #root #action-links, #root #page-links a p .text {
+    font-size : 100%;
+}
+
 /* Link label properties */
 #root #page-links a .link-label {
-	font-size : 110%;
+	font-size : 130%;
 }
 
-#root #page-links a:active .link-label,
-#root #page-links a:focus .link-label,
-#root #page-links a:hover .link-label {
-	font-size : 12.5pt;
-}
-
-/* Link description properties */
-#root #page-links a p .text {
-	font-size : 11pt;
-}
-
-#root #page-links a:hover .link-extra-div {
-	font-size : 13pt;
-}
-
-#root .intro-header {
-    display : inline;
-}
-
-#root .intro-header h1  {
-    color : white;
-    //padding-top : 10px;
-    margin-top : 10px;
-    margin-left : 20px;
-    font-size : 150%;
+#root .intro-header span  {
+    font-size : 125%;
 }
 
 /*

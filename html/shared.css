@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2009 IBM Corporation and others.
+ * Copyright (c) 2006, 2010 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,11 +16,8 @@ body { font-family : Arial, sans-serif; }
 
 H1, H2, H3, H4, p, a { color : #4D4D4D; }
 
-/*
- * We are not using titles in this theme.
- */
-.intro-header {
-	display : none;
+ body {
+	background-color : #FFFFFF;
 }
 
 /* The label part of the folding section */
@@ -68,6 +65,8 @@ HR {
 	float : none;
 	clear : both;
 	margin-left: 70px;
+	position : relative;
+	top : -25px;
 }
 
 a {
@@ -76,18 +75,47 @@ a {
 	color : #4D4D4D;
 }
 
+a:hover  {
+	color: #69c; 
+}
+
 /* General link labels */
 a .link-label {
 	font-weight : normal;
 }
 
 /* Floating link labels for navigation links */
-#navigation-links a .link-label {
-	font-weight : bold;
+#navigation-links a .link-label,
+#action links a .text {
+	font-weight : bold;	
+	color : white;
 }
 
-#navigation-links a.high-contrast .link-label {
-	display : none !important;
+#navigation-links a#overview:hover .link-label
+{
+    color : #FFEC89;
+}
+
+#navigation-links a#tutorials:hover .link-label,
+#navigation-links a#samples:hover .link-label
+{
+    color : #ACCCE9;
+}
+
+#navigation-links a#whatsnew:hover .link-label,
+#navigation-links a#firststeps:hover .link-label
+{
+    color : #E5CD89;
+}
+
+#navigation-links a#webresources:hover .link-label ,
+#navigation-links a#migrate:hover .link-label
+{
+    color : #BCD77C;
+}
+
+#action-links a:hover .link-label {
+    color : E0DFE3;
 }
 
 /* Text in links. */
@@ -117,6 +145,7 @@ html, body, div, h1, h4, p, a { margin : 0px; padding : 0px; }
  * for navigation background/header overlap.
  */
 #page-content #content-header {
+    padding-top : 10px;
 	padding-bottom : 22px;
 }
 
@@ -163,9 +192,9 @@ html>body { overflow: visible; }
  * settings primarily apply to the content pages
  */
 body {
-	background-color : #FFFFFF;
-	background-repeat : no-repeat;
-	background-position : bottom right;
+    background-image: url(../graphics/contentpage/banner_extension.jpg);	
+    background-repeat: repeat-x;
+    background-position: top left;
 }
 
 /*
@@ -188,8 +217,7 @@ body, .page {
 }
 
 .page {
-	background-image : url(../graphics/contentpage/background.jpg);
-	background-repeat : repeat-x;
+	background-repeat : no-repeat;
 	background-position : top left;
 	
 	min-width : 770px;
@@ -214,250 +242,86 @@ body, .page {
 	top : 0px;
 	padding-left: 12px;
 	height : 118px;
-	width : 100%;
-}
-
-.page > #navigation-links {
-	width: 98.1%;
 }
 
 #navigation-links a {
 	text-align : left;
-	width : auto;
 	height : 64px;
+	float : left;
+	margin-left : 10px;
+	position : relative;
+	text-align : center;
 }
 
-/*
- * Navigation links have a mixin style 'nav_link<n>' where <n> goes from
- * 1 to N. This allows us to position these fixed link slots while
- * not hand-coding the actual link IDs because they can be turned off
- * by users or products via preferences.
- */
-
-#navigation-links a.nav_link1 {
-	position: absolute;
-	left : 12px;
-}
-
-#navigation-links a.nav_link2 {
-	position : absolute;
-	left : 76px;
-}
-
-#navigation-links a.nav_link3 {
-	position : absolute;
-	left : 140px;
-}
-
-#navigation-links a.nav_link4 {
-	position : absolute;
-	left : 204px;
-}
-
-#navigation-links a.nav_link5 {
-	position : absolute;
-	left : 268px;
-}
-
-#navigation-links a.nav_link6 {
-	position : absolute;
-	left : 332px;
-}
-
-#navigation-links a.nav_link7 {
-	position: absolute;
-	left : 396px;
+#action-links a {
+    float : right;
+    margin-right : 20px;
 }
 
 #navigation-links a img {
-	position : relative;
-	height : 64px;
-	width : 64px;
+	height : 32px;
+	width : 32px;
 	vertical-align : center;
-	horizontal-align : center;
-	top : 10px;
-	left : 9px;
+	horizontal-align : center; 
+	display : block;
+	margin-top : 5px;
+	margin-bottom : 0px;
+	margin-left : auto;
+	margin-right : auto;
 }
 
 #navigation-links a.high-contrast img {
-	height: 32px;
-	width: 32px;
-	top: 5px !important;
-	left: 0px !important;
+	margin-bottom : 0px;
 }
 
-/*
- * Adjust image position for hover version.
- */
-
-#navigation-links a:hover img,
-#navigation-links a:focus img,
-#navigation-links a:active img {
-	top : 2px;
-	left : 0px;
-}
-
-/*
- * Navigation link label text is normally hidden. Workaround to produce the
- * same effect as display: none while still allowing screenreaders to
- * speak it.
- */
-#navigation-links a .link-label { 
-    display : none;
-}
 
 /*
  * Not showing description for navigation links.
  */
 #navigation-links a .text { display : none; }
 
-#navigation-links a:hover,
-#navigation-links a:focus,
-#navigation-links a:active {
-	border-right : 0px;
-	background-image: url(../graphics/icons/ctool/nav_midhov.gif);
-	background-repeat: repeat-x;
-	background-position: 0px 2px;
-	z-index: 20;
-}
-
-#navigation-links a:hover .link-label,
-#navigation-links a:focus .link-label,
-#navigation-links a:active .link-label {
-	display : inline;
-	clear : both;
-	float : left;
-	text-align: right;
-	position : relative;
-	padding-left: 7px;
-	padding-top: 7px;
-	padding-right: 7px;
-	margin-right: auto;
-	top : -35px;
-	white-space: nowrap;
-	height : 32px;
-	left: auto;
-	width: auto;
-}
-
-/*
- * Add the right edge by using the extra div generated for links
- * and set the right edge image as the background.
- */
-
-#navigation-links a:hover .link-extra-div,
-#navigation-links a:focus .link-extra-div,
-#navigation-links a:active .link-extra-div {
-	display: block;
-	position: absolute;
-	right : -2px;
-	top : 2px;
-	width : 2px;
-	height : 64px;
-	background-image: url(../graphics/icons/ctool/nav_rightedgehov.gif);
-	background-repeat: no-repeat;
-}
-
 /* properties for each of the navigation-links  */
 #navigation-links a#overview img { 
 	background-image : url(../graphics/icons/ctool/ov_nav_32.gif); 
-}
-#navigation-links a#overview:hover img,
-#navigation-links a#overview:focus img,
-#navigation-links a#overview:active img { 
-	background-image : url(../graphics/icons/ctool/ov_nav_hover.gif); 
 }
 
 #navigation-links a#firststeps img { 
 	background-image : url(../graphics/icons/ctool/fs_nav_32.gif); 
 }
-#navigation-links a#firststeps:hover img,
-#navigation-links a#firststeps:focus img,
-#navigation-links a#firststeps:active img { 
-	background-image : url(../graphics/icons/ctool/fs_nav_hover.gif); }
 
 #navigation-links a#tutorials img { 
 	background-image : url(../graphics/icons/ctool/tu_nav_32.gif); 
-}
-#navigation-links a#tutorials:hover img,
-#navigation-links a#tutorials:active img,
-#navigation-links a#tutorials:focus img { 
-	background-image : url(../graphics/icons/ctool/tu_nav_hover.gif); 
 }
 
 #navigation-links a#samples img { 
 	background-image : url(../graphics/icons/ctool/sa_nav_32.gif); 
 }
-#navigation-links a#samples:hover img,
-#navigation-links a#samples:active img,
-#navigation-links a#samples:focus img { 
-	background-image : url(../graphics/icons/ctool/sa_nav_hover.gif); 	
-	left: -1px;
-}
 
 #navigation-links a#whatsnew img { 
 	background-image : url(../graphics/icons/ctool/wn_nav_32.gif); 
-}
-#navigation-links a#whatsnew:hover img,
-#navigation-links a#whatsnew:focus img,
-#navigation-links a#whatsnew:active img { 
-	background-image : url(../graphics/icons/ctool/wn_nav_hover.gif); 
-	left: -1px;
 }
 
 #navigation-links a#migrate img { 
 	background-image : url(../graphics/icons/ctool/mi_nav_32.gif); 
 }
-#navigation-links a#migrate:hover img,
-#navigation-links a#migrate:focus img,
-#navigation-links a#migrate:active img { 
-	background-image : url(../graphics/icons/ctool/mi_nav_hover.gif); 
-	left: -1px;
-}
 
 #navigation-links a#webresources img { 
 	background-image : url(../graphics/icons/ctool/wr_nav_32.gif); 
 }
-#navigation-links a#webresources:hover img,
-#navigation-links a#webresources:focus img,
-#navigation-links a#webresources:active img { 
-	background-image : url(../graphics/icons/ctool/wr_nav_hover.gif); 
-	left: -1px;
-}
 
-#navigation-links a#workbench {
-	position : absolute;  
-	left : 494px; 
-	text-align : left;
-}
-#navigation-links a#workbench .text { display : none; }
-
-#navigation-links a.high-contrast#workbench:hover img,
-#navigation-links a.high-contrast#workbench:focus img,
-#navigation-links a.high-contrast#workbench:active img,
 #navigation-links a#workbench img { 
 	background-image : url(../graphics/icons/ctool/wb_nav_32.gif); 
-	width : 32px; 
-	height : 32px;
 }
 
-#navigation-links a#workbench:hover img,
-#navigation-links a#workbench:focus img,
-#navigation-links a#workbench:active img { 
-	background-image : url(../graphics/icons/ctool/wb_nav_hover.gif); 
-	width : 51px;
-	height : 64px;
-	left: -1px;
-}
-
-#action-links a.high-contrast img,
-#action-links a.high-contrast:hover img,
-#action-links a.high-contrast:focus img,
-#action-links a.high-contrast:active img {
-	display: none !important;
+#action-links a {
+	text-align : center;
 }
 
 #action-links a.high-contrast .link-label {
+	display: none;
+}
+
+#navigation-links a.high-contrast .background-image {
 	display: none;
 }
 
@@ -466,6 +330,11 @@ body, .page {
 	display: block !important;
 	text-decoration: underline;
 	top : 5px;
+}
+
+#page-links span {
+    display : block;
+    margin-top : -2px;
 }
 
 /* 
@@ -552,16 +421,21 @@ h1, p { margin-left : 10px; } /* required in mozilla so the page description is 
 
 #page-content * a > .link-label { left: 65px; }
 
-#page-content * a p .text {
+#page-content * a p  {
 	display : block;
 	position : relative;
 	top : -45px;
 	margin-bottom: -25px;
+}
+
+#page-content * a p .text {
+	display : block;
+	position : relative;
 	left : 53px;
 	margin-right: 53px;
 }
 
-#page-content * a p > .text { left: 58px; }
+#page-content * a p > .text { left: 56px; }
 
 #page-content * a:hover { border-right : 5px; }
 
@@ -621,6 +495,7 @@ h1, p { margin-left : 10px; } /* required in mozilla so the page description is 
 .topicList:hover {
 	color: #69c;
 }
+
 
 .rss-feed-link a {
 	font-family: Verdana, Arial, Helvetica; 
